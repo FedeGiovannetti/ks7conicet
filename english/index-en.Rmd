@@ -1,4 +1,5 @@
 ---
+description: "Historical analysis of the evolution of new job positions in the Psychology and Educational Sciences Comitte"
 title: "<center>**Historical analysis of the evolution of new job positions**</center>"
 subtitle: "<center>in the Psychology and Educational Sciences Comitte<br>(CONICET, ARGENTINA)</center>"
 output: 
@@ -16,7 +17,7 @@ output:
 <meta property="og:url" content="https://metatags.io/">
 <meta property="og:title" content="Análisis de la evolución histórica de becas e ingresos a carrera en la Comisión de Psicología y Ciencias de la Educación (KS7) - CONICET">
 <meta property="og:description" content="El objetivo de este sitio es poner a disposición de la comunidad científica un análisis anual de la evolución de becas e ingresos otorgados por el CONICET (Argentina) dentro de la Comisión de Psicología y Ciencias de la Educación. A pesar de que los datos presentados aquí sean de dominio público, no siempre es accesible ni es informado a los/as trabajadores/as de CONICET. Esperamos que la información disponible aquí sea de utilidad para continuar avanzando en la conquista de derechos laborales y hacia una psicología con más ciencia.">
-<meta property="og:image" content="/preview_image.png">
+<meta property="og:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
