@@ -1,8 +1,8 @@
 ---
-name: "Series Históricas KS7 CONICET"
-description: "Análisis de la evolución histórica de becas e ingresos a carrera en la Comisión de Psicología y Ciencias de la Educación (KS7) - CONICET."
+pagetitle: "Análisis de la evolución histórica de becas e ingresos a carrera"
 title: "<center>**Análisis de la evolución histórica de becas e ingresos a carrera**</center>"
 subtitle: "<center>en la Comisión de Psicología y Ciencias de la Educación<br>(KS7) - CONICET</center>"
+description: "Análisis de la evolución histórica de becas e ingresos a carrera en la Comisión de Psicología y Ciencias de la Educación (KS7) - CONICET."
 output: 
   html_document: 
     fig_width: 9

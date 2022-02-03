@@ -1,4 +1,5 @@
 name: "Series Históricas KS-7 CONICET"
+pagetitle: "Series Históricas KS-7 CONICET"
 output_dir: 'docs'
 output:
   html_document:
