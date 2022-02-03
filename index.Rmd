@@ -4,6 +4,7 @@ subtitle: "<center>en la Comisión de Psicología y Ciencias de la Educación<br
 output: 
   html_document: 
     fig_width: 9
+
 ---
 
 
@@ -14,7 +15,6 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
 
 library(tidyverse)
-library(ggpubr)
 library(plotly)
 
 ```
@@ -23,9 +23,9 @@ library(plotly)
 ```{r, echo=FALSE}
 
 
-base <- read.csv("series_historicas_KS_7.csv", sep = ";")
+base <- read.csv("series_historicas_KS_7 - es.csv", sep = ";")
 
-base$Type <- factor(base$Type, levels = c("Doctoral fellows", "Postdoctoral fellows", "Permanent Research Fellows"))
+base$Tipo <- factor(base$Tipo, levels = c("Becarios/as doctorales", "Becarios/as posdoctorales", "Carrera de Investigador/a Científico/a (CIC)"))
 
 ```
 
@@ -33,28 +33,27 @@ base$Type <- factor(base$Type, levels = c("Doctoral fellows", "Postdoctoral fell
 <br>
 <br>
 
-# Introduction
+# Introducción
 
-The objective of this site is to make available an annual analysis of the evolution of scholarships and admissions granted in CONICET (Argentina) within the Psychology and Educational Sciences Committee. Although all the data presented here is in the public domain, it is not always accessible nor informed to CONICET workers. We hope that the information provided here will be useful to continue advancing in the conquest of labor rights and towards a psychology with more science.
+El objetivo de este sitio es poner a disposición de la comunidad científica un análisis anual de la evolución de becas e ingresos otorgados por el CONICET (Argentina) dentro de la Comisión de Psicología y Ciencias de la Educación. A pesar de que los datos presentados aquí sean de dominio público, no siempre es accesible ni es informado a los/as trabajadores/as de CONICET. Esperamos que la información disponible aquí sea de utilidad para continuar avanzando en la conquista de derechos laborales y hacia una psicología con más ciencia.
 
-### Collaborative vocation
+### Vocación colataborativa
 
-The present site, along with code and data is of public domain. We ecourage colleagues to get involved in the analysis, the code and the data via Github or via personal communication with the authors. Contact information is available in the "About us" section.
-
-<br>
-<br>
-
-# Data Analysis
-
-### Scientific Careers in Psychology in Argentina
-
-In Argentina, psychologists who wish to pursue research careers tend to apply for research positions at the National Scientific and Technical Research Council (CONICET). This agency publishes open calls for new research positions every year (for Phd students, postdocs or permanent research fellows). Candidates’ applications are assessed according to their educational background, and their prior research experience (publications, conference presentations, student advising; National Scientific and Technical Research Council, 2021).
-There is no public information regarding the number of psychologists working for CONICET, given that those psychologists who apply for research positions are assessed by the “Psychology and Educational Sciences committee” (which also assesses and selects applicants who hold a degree in Education). That is, not all doctoral, postdoctoral and permanent research fellows who are selected by this committee are psychologists, or focus on psychological research. 
+El presente sitio, junto con los códigos y los datos de los análisis son de dominio público. Alentamos a nuestros/as colegas a que se involucren en los análisis, el código y con los datos ya sea mediante GitHub o por correo electrónico. La información de contacto está disponible en la sección "Nosotros".
 
 <br>
 <br>
 
-## Number of yearly new job positions
+# Análisis de datos
+
+### Carreras científicas de psicología en Argentina
+
+En la Argentina, los/as psicólogos que desean comenzar una carrera cienífica tienden a postular para becas y puestos de planta permanente en el Consejo Nacional de Investigaciones Científicas y Técnicas (CONICET). El organismo publica convocatorias anualmente para el ingreso de becarios/as doctorales, becarios/as posdoctorales, y para la Carrera de Investigador/a Científico/a. Ha partir de la solicitud de Información Pública al CONICET, realizamos los siguientes análisis que buscan ilustrar la evolución y el estado de situación de los campos de investigación en psicología y ciencias de la educación en Argentina
+
+<br>
+<br>
+
+## Cantidad de ingresos anuales en la Comisión de Psicología y Ciencias de la Educación
 
 ```{r, echo=FALSE}
 
@@ -62,12 +61,12 @@ plot_1 = base%>%
   ggplot()+
   geom_rect(aes(xmin = 2015.5, xmax = 2019.5, ymin = -Inf, ymax = Inf),
             fill = "light grey", alpha = 0.014)+
-  geom_point(aes(x = (Convocatoria), y= Otorgadas, group = Type, color = Type, text = paste(trunc(Otorgadas*1000)/1000)), size = 2)+
-  geom_line(aes(x = (Convocatoria), y= Otorgadas, group = Type, color = Type), size = 1.2)+
+  geom_point(aes(x = (Convocatoria), y= Otorgadas, group = Tipo, color = Tipo, text = paste(trunc(Otorgadas*1000)/1000)), size = 2)+
+  geom_line(aes(x = (Convocatoria), y= Otorgadas, group = Tipo, color = Tipo), size = 1.2)+
   
   scale_x_continuous(limits = c(2011, 2020), breaks = seq(2011, 2020))+
-  xlab(label = "Open Call")+
-  ylab(label = "Psychology and Education Committee\n new job positions")+
+  xlab(label = "Convocatorias")+
+  ylab(label = "Ingresos en la comisión de Psicología\ny Ciencias de la Educación")+
   ylim(0,60)+
   theme_minimal()
 
@@ -78,7 +77,7 @@ ggplotly(plot_1, tooltip = "text")
 <br>
 <br>
 
-## Psychology and Education Committee researchers Every 100 new job positions
+## Ingresos de la Comisión de Psicología y Ciencias de la Educación cada 100 ingresos generales
 
 ```{r, echo=FALSE}
 
@@ -87,13 +86,13 @@ plot_2 = base%>%
   ggplot()+
   geom_rect(aes(xmin = 2015.5, xmax = 2019.5, ymin = -Inf, ymax = Inf),
             fill = "light grey", alpha = 0.014)+
-  geom_point(aes(x = (Convocatoria), y= Psicologos.cada.100.becaries, text = (paste(trunc(Psicologos.cada.100.becaries*1000)/1000)), group = Type, color = Type), size = 2)+
-  geom_line(aes(x = (Convocatoria), y= Psicologos.cada.100.becaries, group = Type, color = Type), size = 1.2)+
+  geom_point(aes(x = (Convocatoria), y= Psicologos.cada.100.becaries, text = (paste(trunc(Psicologos.cada.100.becaries*1000)/1000, "ingresos KS7 cada\n100 ingresos generales")), group = Tipo, color = Tipo), size = 2)+
+  geom_line(aes(x = (Convocatoria), y= Psicologos.cada.100.becaries, group = Tipo, color = Tipo), size = 1.2)+
   
 
   scale_x_continuous(limits = c(2011, 2020), breaks = seq(2011, 2020))+
-  xlab(label = "Open Call")+
-  ylab(label = "Psychology and Education Committee\n researchers Every 100 new job positions")+
+  xlab(label = "Convocatorias")+
+  ylab(label = "Ingresos de investigadores/as y becarios/as de la \nComisión de Psicología y Ciencias de la Educación\ncada 100 ingresos generales")+
   ylim(1,4)+
   theme_minimal()
 
@@ -104,7 +103,7 @@ ggplotly(plot_2, tooltip = "text")
 <br>
 <br>
 
-## Psychology and Education Committee applicants
+## Postulantes a la Comisión de Psicología y Ciencias de la Educación
 
 ```{r, echo=FALSE}
 
@@ -113,13 +112,13 @@ plot_3 = base%>%
   geom_rect(aes(xmin = 2015.5, xmax = 2019.5, ymin = -Inf, ymax = Inf),
             fill = "light grey", alpha = 0.014)+
   
-  geom_point(aes(x = (Convocatoria), y= Postulaciones, text = paste(trunc(Postulaciones*1000)/1000), group = Type, color = Type), size = 2)+
-  geom_line(aes(x = (Convocatoria), y= Postulaciones, group = Type, color = Type), size = 1.2)+
+  geom_point(aes(x = (Convocatoria), y= Postulaciones, text = paste(trunc(Postulaciones*1000)/1000), group = Tipo, color = Tipo), size = 2)+
+  geom_line(aes(x = (Convocatoria), y= Postulaciones, group = Tipo, color = Tipo), size = 1.2)+
 
 
-  ylab(label = "Psychology and Education Committee\n applicants")+
+  ylab(label = "Postulantes de la Comisión de Psicología\ny Ciencias de la Educación")+
   scale_x_continuous(limits = c(2011, 2020), breaks = seq(2011, 2020))+
-  xlab(label = "Open Call")+
+  xlab(label = "Convocatorias")+
   # ylim(0,60)+
   theme_minimal()
 
@@ -132,7 +131,7 @@ ggplotly(plot_3, tooltip = "text")
 <br>
 <br>
 
-## Psychology and Education Committee percentaje of new job positions
+## Porcentaje de ingresos en la Comisión de Psicología y Ciencias de la Educación
 
 ```{r, echo=FALSE}
 
@@ -141,13 +140,13 @@ plot_4 = base%>%
   geom_rect(aes(xmin = 2015.5, xmax = 2019.5, ymin = -Inf, ymax = Inf),
             fill = "light grey", alpha = 0.014)+
   
-  geom_point(aes(x = (Convocatoria), y= Porcentaje, text = paste(trunc(Porcentaje*1000)/1000), group = Type, color = Type), size = 2)+
-  geom_line(aes(x = (Convocatoria), y= Porcentaje, group = Type, color = Type), size = 1.2)+
+  geom_point(aes(x = (Convocatoria), y= Porcentaje, text = paste(trunc(Porcentaje*1000)/1000, ""), group = Tipo, color = Tipo), size = 2)+
+  geom_line(aes(x = (Convocatoria), y= Porcentaje, group = Tipo, color = Tipo), size = 1.2)+
   
   
   scale_x_continuous(limits = c(2011, 2020), breaks = seq(2011, 2020))+
-  xlab(label = "Open Call")+
-  ylab(label = "Psychology and Education Committee\n percentaje of new job positions")+
+  xlab(label = "Convocatorias")+
+  ylab(label = "Porcentaje de nuevos ingresos en la\nComisión de Psicología y Ciencias de la Educación")+
   ylim(0,100)+
   theme_minimal()
 

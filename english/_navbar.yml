@@ -1,0 +1,17 @@
+name: "Series históricas KS-7 CONICET"
+title: "Series Históricas KS-7 CONICET"
+type: inverse
+left:
+  - text: "About us"
+    menu:
+      - text: "About us"
+    href: ./aboutme-en.html
+  - text: "Repository"
+    menu:
+       - text: "Code and data"
+         href: https://github.com/FedeGiovannetti/ks7conicet
+  - text: "Español"
+    href: https://fedegiovannetti.github.io/ks7conicet/
+right:
+  - text: "Last Update: 03/02/2022"
+    href: https://fedegiovannetti.github.io/ks7conicet/
