@@ -1,4 +1,9 @@
 ---
+<<<<<<< HEAD
+=======
+name: "Series Históricas KS7 CONICET"
+description: "Historical analysis of the evolution of new job positions in the Psychology and Educational Sciences Comitte"
+>>>>>>> parent of 76a85a2 (Fixing browser tab info)
 title: "<center>**Historical analysis of the evolution of new job positions**</center>"
 subtitle: "<center>in the Psychology and Educational Sciences Comitte<br>(CONICET, ARGENTINA)</center>"
 output: 
