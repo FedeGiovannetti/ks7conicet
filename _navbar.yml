@@ -9,7 +9,7 @@ left:
   - text: "Repository"
     menu:
        - text: "Code and data"
-         href: https://github.com/FedeGiovannetti/KS7CONICET
+         href: https://github.com/FedeGiovannetti/ks7conicet
        # - text: "Project part 2"
        #   href: ./project2.html
   # - text: "Contact"
