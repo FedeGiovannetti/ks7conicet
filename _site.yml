@@ -1,9 +1,9 @@
-name: "My new website"
+name: "Series Históricas KS-7 CONICET"
 output_dir: 'docs'
 output:
   html_document:
-    theme: cerulean
-    highlight: zenburn
+    theme: yeti
+    highlight: tango
     toc: true
     toc_depth: 2
     toc_float:

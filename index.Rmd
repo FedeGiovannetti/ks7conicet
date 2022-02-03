@@ -1,27 +1,157 @@
 ---
-title: "My website"
+title: "<center>**Análisis de la evolución histórica de becas e ingresos a carrera**</center>"
+subtitle: "<center>en la Comisión de Psicología y Ciencias de la Educación<br>(KS7) - CONICET</center>"
 output: 
-  html_document:
-    toc: FALSE
+  html_document: 
+    fig_width: 9
 ---
 
 
 
+```{r setup, include=FALSE}
 
-**Welcome to my website!**
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
+
+library(tidyverse)
+library(ggpubr)
+library(plotly)
+
+```
 
 
-# Getting started
-
-Click the links in the menu above to look around.
+```{r, echo=FALSE}
 
 
-# Notes
+base <- read.csv("series_historicas_KS_7.csv", sep = ";")
 
-This website is a collection of regular (R)Markdown document, so you can use all the usual formatting.
+base$Type <- factor(base$Type, levels = c("Doctoral fellows", "Postdoctoral fellows", "Permanent Research Fellows"))
 
-If you are new to R Markdown, you can learn more about it [on the R Markdown website](https://rmarkdown.rstudio.com/). 
+```
 
-I also have a discussion of R Markdown and reproducibility [on one of my course pages](https://andreashandel.github.io/MADAcourse/1e_ToolsforReproducibility.html). You'll find additional links to potentially useful R Markdown (and Github) resources there.
 
+<br>
+<br>
+
+# Introduction
+
+The objective of this site is to make available an annual analysis of the evolution of scholarships and admissions granted in CONICET (Argentina) within the Psychology and Educational Sciences Committee. Although all the data presented here is in the public domain, it is not always accessible nor informed to CONICET workers. We hope that the information provided here will be useful to continue advancing in the conquest of labor rights and towards a psychology with more science.
+
+### Collaborative vocation
+
+The present site, along with code and data is of public domain. We ecourage colleagues to get involved in the analysis, the code and the data via Github or via personal communication with the authors. Contact information is available in the "About us" section.
+
+<br>
+<br>
+
+# Data Analysis
+
+### Scientific Careers in Psychology in Argentina
+
+In Argentina, psychologists who wish to pursue research careers tend to apply for research positions at the National Scientific and Technical Research Council (CONICET). This agency publishes open calls for new research positions every year (for Phd students, postdocs or permanent research fellows). Candidates’ applications are assessed according to their educational background, and their prior research experience (publications, conference presentations, student advising; National Scientific and Technical Research Council, 2021).
+There is no public information regarding the number of psychologists working for CONICET, given that those psychologists who apply for research positions are assessed by the “Psychology and Educational Sciences committee” (which also assesses and selects applicants who hold a degree in Education). That is, not all doctoral, postdoctoral and permanent research fellows who are selected by this committee are psychologists, or focus on psychological research. 
+
+<br>
+<br>
+
+## Number of yearly new job positions
+
+```{r, echo=FALSE}
+
+plot_1 = base%>%
+  ggplot()+
+  geom_rect(aes(xmin = 2015.5, xmax = 2019.5, ymin = -Inf, ymax = Inf),
+            fill = "light grey", alpha = 0.014)+
+  geom_point(aes(x = (Convocatoria), y= Otorgadas, group = Type, color = Type, text = paste(trunc(Otorgadas*1000)/1000)), size = 2)+
+  geom_line(aes(x = (Convocatoria), y= Otorgadas, group = Type, color = Type), size = 1.2)+
+  
+  scale_x_continuous(limits = c(2011, 2020), breaks = seq(2011, 2020))+
+  xlab(label = "Open Call")+
+  ylab(label = "Psychology and Education Committee\n new job positions")+
+  ylim(0,60)+
+  theme_minimal()
+
+ggplotly(plot_1, tooltip = "text")
+
+```
+
+<br>
+<br>
+
+## Psychology and Education Committee researchers Every 100 new job positions
+
+```{r, echo=FALSE}
+
+
+plot_2 = base%>%
+  ggplot()+
+  geom_rect(aes(xmin = 2015.5, xmax = 2019.5, ymin = -Inf, ymax = Inf),
+            fill = "light grey", alpha = 0.014)+
+  geom_point(aes(x = (Convocatoria), y= Psicologos.cada.100.becaries, text = (paste(trunc(Psicologos.cada.100.becaries*1000)/1000)), group = Type, color = Type), size = 2)+
+  geom_line(aes(x = (Convocatoria), y= Psicologos.cada.100.becaries, group = Type, color = Type), size = 1.2)+
+  
+
+  scale_x_continuous(limits = c(2011, 2020), breaks = seq(2011, 2020))+
+  xlab(label = "Open Call")+
+  ylab(label = "Psychology and Education Committee\n researchers Every 100 new job positions")+
+  ylim(1,4)+
+  theme_minimal()
+
+
+ggplotly(plot_2, tooltip = "text")
+
+```
+<br>
+<br>
+
+## Psychology and Education Committee applicants
+
+```{r, echo=FALSE}
+
+plot_3 = base%>%
+  ggplot()+
+  geom_rect(aes(xmin = 2015.5, xmax = 2019.5, ymin = -Inf, ymax = Inf),
+            fill = "light grey", alpha = 0.014)+
+  
+  geom_point(aes(x = (Convocatoria), y= Postulaciones, text = paste(trunc(Postulaciones*1000)/1000), group = Type, color = Type), size = 2)+
+  geom_line(aes(x = (Convocatoria), y= Postulaciones, group = Type, color = Type), size = 1.2)+
+
+
+  ylab(label = "Psychology and Education Committee\n applicants")+
+  scale_x_continuous(limits = c(2011, 2020), breaks = seq(2011, 2020))+
+  xlab(label = "Open Call")+
+  # ylim(0,60)+
+  theme_minimal()
+
+ggplotly(plot_3, tooltip = "text")
+
+```
+
+
+
+<br>
+<br>
+
+## Psychology and Education Committee percentaje of new job positions
+
+```{r, echo=FALSE}
+
+plot_4 = base%>%
+  ggplot()+
+  geom_rect(aes(xmin = 2015.5, xmax = 2019.5, ymin = -Inf, ymax = Inf),
+            fill = "light grey", alpha = 0.014)+
+  
+  geom_point(aes(x = (Convocatoria), y= Porcentaje, text = paste(trunc(Porcentaje*1000)/1000), group = Type, color = Type), size = 2)+
+  geom_line(aes(x = (Convocatoria), y= Porcentaje, group = Type, color = Type), size = 1.2)+
+  
+  
+  scale_x_continuous(limits = c(2011, 2020), breaks = seq(2011, 2020))+
+  xlab(label = "Open Call")+
+  ylab(label = "Psychology and Education Committee\n percentaje of new job positions")+
+  ylim(0,100)+
+  theme_minimal()
+
+ggplotly(plot_4, tooltip = "text")
+
+```
 

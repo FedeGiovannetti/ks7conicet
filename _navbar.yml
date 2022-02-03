@@ -1,19 +1,19 @@
-name: "Mywebsite"
-title: "My new website"
+name: "Historical Series KS-7 CONICET"
+title: "Series Históricas KS-7 CONICET"
 type: inverse
 left:
-  - text: "About me"
+  - text: "About us"
+    # menu:
+    #   - text: "About us"
+    href: ./aboutme.html
+  - text: "Repository"
     menu:
-      - text: "Learn more about me"
-        href: ./aboutme.html
-  - text: "Project"
-    menu:
-       - text: "Project part 1"
-         href: ./project1.html
-       - text: "Project part 2"
-         href: ./project2.html
-  - text: "Contact"
-    href: ./contact.html
+       - text: "Code and data"
+         href: https://github.com/FedeGiovannetti/KS7CONICET
+       # - text: "Project part 2"
+       #   href: ./project2.html
+  # - text: "Contact"
+  #   href: ./contact.html
 right:
   - icon: fa-github fa-lg
-    href: https://github.com/githubusername/mywebsite
+    href: https://github.com/FedeGiovannetti
