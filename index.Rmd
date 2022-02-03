@@ -18,6 +18,29 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 
 library(tidyverse)
 library(plotly)
+library(metathis)
+
+```
+
+```{r, echo=FALSE}
+
+meta() %>%
+  meta_description(
+    "This book will teach you how to do data science with R..."
+  ) %>% 
+  meta_name("github-repo" = "hadley/r4ds") %>% 
+  meta_viewport() %>% 
+  meta_social(
+    title = "R for Data Science",
+    url = "https://r4ds.had.co.nz",
+    image = "https://r4ds.had.co.nz/cover.png",
+    image_alt = "The cover of the R4DS book",
+    og_type = "book",
+    og_author = c("Garrett Grolemund", "Hadley Wickham"),
+    twitter_card_type = "summary",
+    twitter_creator = "@hadley"
+  )
+
 
 ```
 
