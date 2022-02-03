@@ -3,8 +3,6 @@ title: "Series Históricas KS-7 CONICET"
 type: inverse
 left:
   - text: "About us"
-    menu:
-      - text: "About us"
     href: ./aboutme-en.html
   - text: "Repository"
     menu:
