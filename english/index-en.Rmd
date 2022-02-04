@@ -17,9 +17,31 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 library(tidyverse)
 library(ggpubr)
 library(plotly)
+library(metathis)
 
 ```
 
+
+```{r, echo=FALSE}
+
+meta() %>%
+  meta_description(
+    "The objective of this site is to make available an annual analysis of the evolution of scholarships and admissions granted in CONICET (Argentina) within the Psychology and Educational Sciences Committee. Although all the data presented here is in the public domain, it is not always accessible nor informed to CONICET workers. We hope that the information provided here will be useful to continue advancing in the conquest of labor rights and towards a psychology with more science."
+  ) %>% 
+  meta_name("github-repo" = "ks7conicet") %>% 
+  meta_viewport() %>% 
+  meta_social(
+    title = "Análisis de la evolución histórica de becas e ingresos a carrera",
+    url = "https://fedegiovannetti.github.io/ks7conicet/",
+    image = "https://github.com/FedeGiovannetti/ks7conicet/blob/main/thumbnail.png",
+    og_type = "website",
+    # og_author = c("Garrett Grolemund", "Hadley Wickham"),
+    twitter_card_type = "summary",
+    twitter_creator = "@fedegiovannetti"
+  )
+
+
+```
 
 ```{r, echo=FALSE}
 
