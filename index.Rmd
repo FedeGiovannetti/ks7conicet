@@ -2,7 +2,6 @@
 pagetitle: "Análisis de la evolución histórica de becas e ingresos a carrera"
 title: "<center>**Análisis de la evolución histórica de becas e ingresos a carrera**</center>"
 subtitle: "<center>en la Comisión de Psicología y Ciencias de la Educación<br>(KS7) - CONICET</center>"
-description: "Análisis de la evolución histórica de becas e ingresos a carrera en la Comisión de Psicología y Ciencias de la Educación (KS7) - CONICET."
 output: 
   html_document: 
     fig_width: 9
@@ -26,19 +25,19 @@ library(metathis)
 
 meta() %>%
   meta_description(
-    "This book will teach you how to do data science with R..."
+    "El objetivo de este sitio es poner a disposición de la comunidad científica un análisis anual de la evolución de becas e ingresos otorgados por el CONICET (Argentina) dentro de la Comisión de Psicología y Ciencias de la Educación. A pesar de que los datos presentados aquí sean de dominio público, no siempre es accesible ni es informado a los/as trabajadores/as de CONICET. Esperamos que la información disponible aquí sea de utilidad para continuar avanzando en la conquista de derechos laborales y hacia una psicología con más ciencia."
   ) %>% 
-  meta_name("github-repo" = "hadley/r4ds") %>% 
+  meta_name("github-repo" = "ks7conicet") %>% 
   meta_viewport() %>% 
   meta_social(
-    title = "R for Data Science",
-    url = "https://r4ds.had.co.nz",
+    title = "Análisis de la evolución histórica de becas e ingresos a carrera",
+    url = "https://fedegiovannetti.github.io/ks7conicet/",
     image = "https://r4ds.had.co.nz/cover.png",
-    image_alt = "The cover of the R4DS book",
-    og_type = "book",
-    og_author = c("Garrett Grolemund", "Hadley Wickham"),
+    image_alt = "https://github.com/FedeGiovannetti/ks7conicet/blob/main/thumbnail.png",
+    og_type = "website",
+    # og_author = c("Garrett Grolemund", "Hadley Wickham"),
     twitter_card_type = "summary",
-    twitter_creator = "@hadley"
+    twitter_creator = "@fedegiovannetti"
   )
 
 
