@@ -33,7 +33,8 @@ meta() %>%
   meta_social(
     title = "Análisis de la evolución histórica de becas e ingresos a carrera",
     url = "https://fedegiovannetti.github.io/ks7conicet/",
-    image = "https://github.com/FedeGiovannetti/ks7conicet/blob/main/thumbnail.png",
+    image = "https://raw.githubusercontent.com/FedeGiovannetti/ks7conicet/520996ccff474eb6c90f5e80b798067669b9c127/thumbnail.png",
+    image_alt = "Cantidad de ingresos anuales",
     og_type = "website",
     # og_author = c("Garrett Grolemund", "Hadley Wickham"),
     twitter_card_type = "summary",
