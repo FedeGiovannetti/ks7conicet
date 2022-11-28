@@ -65,6 +65,10 @@ The objective of this site is to make available an annual analysis of the evolut
 
 The present site, along with code and data is of public domain. We ecourage colleagues to get involved in the analysis, the code and the data via Github or via personal communication with the authors. Contact information is available in the "About us" section.
 
+### Última actualización
+
+En la última actualización, se agregaron los resultados de las convocatorias 2021. En la próxima actualización se inclurián los datos de Psicología por separado de los de Educación.
+
 <br>
 <br>
 
@@ -89,7 +93,7 @@ plot_1 = base%>%
   geom_point(aes(x = (Convocatoria), y= Otorgadas, group = Type, color = Type, text = paste(trunc(Otorgadas*1000)/1000)), size = 2)+
   geom_line(aes(x = (Convocatoria), y= Otorgadas, group = Type, color = Type), size = 1.2)+
   
-  scale_x_continuous(limits = c(2011, 2020), breaks = seq(2011, 2020))+
+  scale_x_continuous(limits = c(2011, 2021), breaks = seq(2011, 2021))+
   xlab(label = "Open Call")+
   ylab(label = "Psychology and Education Committee\n new job positions")+
   ylim(0,60)+
@@ -99,32 +103,6 @@ ggplotly(plot_1, tooltip = "text")
 
 ```
 
-<br>
-<br>
-
-## Psychology and Education Committee researchers Every 100 new job positions
-
-```{r, echo=FALSE}
-
-
-plot_2 = base%>%
-  ggplot()+
-  geom_rect(aes(xmin = 2015.5, xmax = 2019.5, ymin = -Inf, ymax = Inf),
-            fill = "light grey", alpha = 0.014)+
-  geom_point(aes(x = (Convocatoria), y= Psicologos.cada.100.becaries, text = (paste(trunc(Psicologos.cada.100.becaries*1000)/1000)), group = Type, color = Type), size = 2)+
-  geom_line(aes(x = (Convocatoria), y= Psicologos.cada.100.becaries, group = Type, color = Type), size = 1.2)+
-  
-
-  scale_x_continuous(limits = c(2011, 2020), breaks = seq(2011, 2020))+
-  xlab(label = "Open Call")+
-  ylab(label = "Psychology and Education Committee\n researchers Every 100 new job positions")+
-  ylim(1,4)+
-  theme_minimal()
-
-
-ggplotly(plot_2, tooltip = "text")
-
-```
 <br>
 <br>
 
@@ -142,7 +120,7 @@ plot_3 = base%>%
 
 
   ylab(label = "Psychology and Education Committee\n applicants")+
-  scale_x_continuous(limits = c(2011, 2020), breaks = seq(2011, 2020))+
+  scale_x_continuous(limits = c(2011, 2021), breaks = seq(2011, 2021))+
   xlab(label = "Open Call")+
   # ylim(0,60)+
   theme_minimal()
@@ -152,10 +130,9 @@ ggplotly(plot_3, tooltip = "text")
 ```
 
 
-
 <br>
 <br>
-
+ 
 ## Psychology and Education Committee percentaje of new job positions
 
 ```{r, echo=FALSE}
@@ -169,7 +146,7 @@ plot_4 = base%>%
   geom_line(aes(x = (Convocatoria), y= Porcentaje, group = Type, color = Type), size = 1.2)+
   
   
-  scale_x_continuous(limits = c(2011, 2020), breaks = seq(2011, 2020))+
+  scale_x_continuous(limits = c(2011, 2021), breaks = seq(2011, 2021))+
   xlab(label = "Open Call")+
   ylab(label = "Psychology and Education Committee\n percentaje of new job positions")+
   ylim(0,100)+

@@ -65,6 +65,10 @@ El objetivo de este sitio es poner a disposición de la comunidad científica un
 
 El presente sitio, junto con los códigos y los datos de los análisis son de dominio público. Alentamos a nuestros/as colegas a que se involucren en los análisis, el código y con los datos ya sea mediante GitHub o por correo electrónico. La información de contacto está disponible en la sección "Nosotros".
 
+### Última actualización
+
+En la última actualización, se agregaron los resultados de las convocatorias 2021. En la próxima actualización se inclurián los datos de Psicología por separado de los de Educación.
+
 <br>
 <br>
 
@@ -88,7 +92,7 @@ plot_1 = base%>%
   geom_point(aes(x = (Convocatoria), y= Otorgadas, group = Tipo, color = Tipo, text = paste(trunc(Otorgadas*1000)/1000)), size = 2)+
   geom_line(aes(x = (Convocatoria), y= Otorgadas, group = Tipo, color = Tipo), size = 1.2)+
   
-  scale_x_continuous(limits = c(2011, 2020), breaks = seq(2011, 2020))+
+  scale_x_continuous(limits = c(2011, 2021), breaks = seq(2011, 2021))+
   xlab(label = "Convocatorias")+
   ylab(label = "Ingresos en la comisión de Psicología\ny Ciencias de la Educación")+
   ylim(0,60)+
@@ -101,31 +105,6 @@ ggplotly(plot_1, tooltip = "text")
 <br>
 <br>
 
-## Ingresos de la Comisión de Psicología y Ciencias de la Educación cada 100 ingresos generales
-
-```{r, echo=FALSE}
-
-
-plot_2 = base%>%
-  ggplot()+
-  geom_rect(aes(xmin = 2015.5, xmax = 2019.5, ymin = -Inf, ymax = Inf),
-            fill = "light grey", alpha = 0.014)+
-  geom_point(aes(x = (Convocatoria), y= Psicologos.cada.100.becaries, text = (paste(trunc(Psicologos.cada.100.becaries*1000)/1000, "ingresos KS7 cada\n100 ingresos generales")), group = Tipo, color = Tipo), size = 2)+
-  geom_line(aes(x = (Convocatoria), y= Psicologos.cada.100.becaries, group = Tipo, color = Tipo), size = 1.2)+
-  
-
-  scale_x_continuous(limits = c(2011, 2020), breaks = seq(2011, 2020))+
-  xlab(label = "Convocatorias")+
-  ylab(label = "Ingresos de investigadores/as y becarios/as de la \nComisión de Psicología y Ciencias de la Educación\ncada 100 ingresos generales")+
-  ylim(1,4)+
-  theme_minimal()
-
-
-ggplotly(plot_2, tooltip = "text")
-
-```
-<br>
-<br>
 
 ## Postulantes a la Comisión de Psicología y Ciencias de la Educación
 
@@ -141,7 +120,7 @@ plot_3 = base%>%
 
 
   ylab(label = "Postulantes de la Comisión de Psicología\ny Ciencias de la Educación")+
-  scale_x_continuous(limits = c(2011, 2020), breaks = seq(2011, 2020))+
+  scale_x_continuous(limits = c(2011, 2021), breaks = seq(2011, 2021))+
   xlab(label = "Convocatorias")+
   # ylim(0,60)+
   theme_minimal()
@@ -168,7 +147,7 @@ plot_4 = base%>%
   geom_line(aes(x = (Convocatoria), y= Porcentaje, group = Tipo, color = Tipo), size = 1.2)+
   
   
-  scale_x_continuous(limits = c(2011, 2020), breaks = seq(2011, 2020))+
+  scale_x_continuous(limits = c(2011, 2021), breaks = seq(2011, 2021))+
   xlab(label = "Convocatorias")+
   ylab(label = "Porcentaje de nuevos ingresos en la\nComisión de Psicología y Ciencias de la Educación")+
   ylim(0,100)+

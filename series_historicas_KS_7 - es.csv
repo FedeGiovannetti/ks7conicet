@@ -1,32 +1,34 @@
 Tipo;Convocatoria;Postulaciones;Otorgadas;Orden de mÃ©rito;Porcentaje;Total Gran area;Total generales;Cantidad de becaries por psicologx;Psicologos cada 100 becaries
-Carrera de Investigador/a Científico/a (CIC);2011;53;11;;20.75;;526;47.82;2.091254753
-Carrera de Investigador/a Científico/a (CIC);2012;50;12;;24;;563;46.92;2.131438721
-Carrera de Investigador/a Científico/a (CIC);2013;69;12;;17.39;;571;47.58;2.101576182
-Carrera de Investigador/a Científico/a (CIC);2014;72;15;;20.83;;647;43.13;2.318392581
-Carrera de Investigador/a Científico/a (CIC);2015;70;24;;34.29;;708;29.5;3.389830508
-Carrera de Investigador/a Científico/a (CIC);2016;75;11;;14.67;;322;29.27;3.416149068
-Carrera de Investigador/a Científico/a (CIC);2017;63;10;46;15.87;;300;30;3.333333333
-Carrera de Investigador/a Científico/a (CIC);2018;55;3;55;5.45;;210;70;1.428571429
-Carrera de Investigador/a Científico/a (CIC);2019;36;7;34;19.44;;429;61.29;1.631701632
-Carrera de Investigador/a Científico/a (CIC);2020;75;11;75;14.67;;434;39.45;2.534562212
-Becarios/as doctorales;2011;108;37;;34.26;299;1199;32.41;3.085904921
-Becarios/as doctorales;2012;108;32;;29.63;275;1101;34.41;2.906448683
-Becarios/as doctorales;2013;112;36;;32.14;275;1100;30.56;3.272727273
-Becarios/as doctorales;2014;132;47;;35.61;316;1355;28.83;3.468634686
-Becarios/as doctorales;2015;141;51;;36.17;370;1687;33.08;3.023117961
-Becarios/as doctorales;2016;121;27;;22.31;222;845;31.3;3.195266272
-Becarios/as doctorales;2017;62;14;;22.58;;638;45.57;2.194357367
-Becarios/as doctorales;2018;87;21;;24.14;180;759;36.14;2.766798419
-Becarios/as doctorales;2019;74;30;;40.54;;1105;36.83;2.714932127
-Becarios/as doctorales;2020;154;42;;27.27;;1243;29.6;3.378921963
-Becarios/as doctorales;2021;123;31;;25.2;;959;;
-Becarios/as posdoctorales;2011;63;32;;50.79;234;918;28.69;3.48583878
-Becarios/as posdoctorales;2012;62;28;;45.16;200;817;29.18;3.427172583
-Becarios/as posdoctorales;2013;55;29;;52.73;202;835;28.79;3.473053892
-Becarios/as posdoctorales;2014;57;46;;80.7;325;1211;26.33;3.798513625
-Becarios/as posdoctorales;2015;45;43;;95.56;369;1187;27.6;3.622577928
-Becarios/as posdoctorales;2016;43;23;;53.49;203;801;34.83;2.871410737
-Becarios/as posdoctorales;2017;37;25;;67.57;;771;30.84;3.242542153
-Becarios/as posdoctorales;2018;35;15;;42.86;167;661;44.07;2.269288956
-Becarios/as posdoctorales;2019;36;23;;63.89;;836;36.35;2.751196172
-Becarios/as posdoctorales;2020;44;18;;40.91;;559;31.06;3.220035778
+Carrera de Investigador/a Científico/a (CIC);2011;53;11;;20.75;;526;47.82;2.091.254.753
+Carrera de Investigador/a Científico/a (CIC);2012;50;12;;24;;563;46.92;2.131.438.721
+Carrera de Investigador/a Científico/a (CIC);2013;69;12;;17.39;;571;47.58;2.101.576.182
+Carrera de Investigador/a Científico/a (CIC);2014;72;15;;20.83;;647;43.13;2.318.392.581
+Carrera de Investigador/a Científico/a (CIC);2015;70;24;;34.29;;708;29.5;3.389.830.508
+Carrera de Investigador/a Científico/a (CIC);2016;75;11;;14.67;;322;29.27;3.416.149.068
+Carrera de Investigador/a Científico/a (CIC);2017;63;10;46;15.87;;300;30;3.333.333.333
+Carrera de Investigador/a Científico/a (CIC);2018;55;3;55;5.45;;210;70;1.428.571.429
+Carrera de Investigador/a Científico/a (CIC);2019;36;7;34;19.44;;429;61.29;1.631.701.632
+Carrera de Investigador/a Científico/a (CIC);2020;75;11;75;14.67;;434;39.45;2.534.562.212
+Carrera de Investigador/a Científico/a (CIC);2021;43;9;22;20.93;;446;40.90;
+Becarios/as doctorales;2011;108;37;;34.26;299;1199;32.41;3.085.904.921
+Becarios/as doctorales;2012;108;32;;29.63;275;1101;34.41;2.906.448.683
+Becarios/as doctorales;2013;112;36;;32.14;275;1100;30.56;3.272.727.273
+Becarios/as doctorales;2014;132;47;;35.61;316;1355;28.83;3.468.634.686
+Becarios/as doctorales;2015;141;51;;36.17;370;1687;33.08;3.023.117.961
+Becarios/as doctorales;2016;121;27;;22.31;222;845;31.3;3.195.266.272
+Becarios/as doctorales;2017;62;14;;22.58;;638;45.57;2.194.357.367
+Becarios/as doctorales;2018;87;21;;24.14;180;759;36.14;2.766.798.419
+Becarios/as doctorales;2019;74;30;;40.54;;1105;36.83;2.714.932.127
+Becarios/as doctorales;2020;154;42;;27.27;;1243;29.6;3.378.921.963
+Becarios/as doctorales;2021;123;31;;25.2;;959;30.93;32.325
+Becarios/as posdoctorales;2011;63;32;;50.79;234;918;28.69;348.583.878
+Becarios/as posdoctorales;2012;62;28;;45.16;200;817;29.18;3.427.172.583
+Becarios/as posdoctorales;2013;55;29;;52.73;202;835;28.79;3.473.053.892
+Becarios/as posdoctorales;2014;57;46;;80.7;325;1211;26.33;3.798.513.625
+Becarios/as posdoctorales;2015;45;43;;95.56;369;1187;27.6;3.622.577.928
+Becarios/as posdoctorales;2016;43;23;;53.49;203;801;34.83;2.871.410.737
+Becarios/as posdoctorales;2017;37;25;;67.57;;771;30.84;3.242.542.153
+Becarios/as posdoctorales;2018;35;15;;42.86;167;661;44.07;2.269.288.956
+Becarios/as posdoctorales;2019;36;23;;63.89;;836;36.35;2.751.196.172
+Becarios/as posdoctorales;2020;44;18;;40.91;;559;31.06;3.220.035.778
+Becarios/as posdoctorales;2021;44;16;;36.36;;617;38.56;2.593.192.869
