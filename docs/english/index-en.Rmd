@@ -132,7 +132,7 @@ ggplotly(plot_3, tooltip = "text")
 
 <br>
 <br>
-
+ 
 ## Psychology and Education Committee percentaje of new job positions
 
 ```{r, echo=FALSE}
