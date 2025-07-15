@@ -22,10 +22,3 @@ knitr::opts_chunk$set(echo = TRUE)
 <br>
 Contact: giovannettipsi@gmail.com
 
-
-<br>
-
-## [Jazmin Cevasco (PhD)](https://www.researchgate.net/profile/Jazmin-Cevasco)
-University of Buenos Aires - National Scientific and Technical Research Council 
-<br>
-Contact: jazmincev@msn.com

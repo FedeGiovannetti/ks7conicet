@@ -47,9 +47,41 @@ meta() %>%
 ```{r, echo=FALSE}
 
 
-base <- read.csv("series_historicas_KS_7 - es.csv", sep = ";")
+base <- readxl::read_excel("series_historicas_KS_7 - es.xlsx")
 
 base$Tipo <- factor(base$Tipo, levels = c("Becarios/as doctorales", "Becarios/as posdoctorales", "Carrera de Investigador/a Científico/a (CIC)"))
+
+
+theme_litera_minimal <- function(base_size = 15, base_family = "sans") {
+  theme_minimal(base_size = base_size, base_family = base_family) +
+    theme(
+      plot.title = element_text(face = "bold", size = base_size * 1.5, hjust = 0.5),
+      plot.subtitle = element_text(size = base_size * 1.1, hjust = 0.5, color = "gray40"),
+      plot.caption = element_text(size = base_size * 0.8, color = "gray50", hjust = 1),
+      axis.title = element_text(face = "bold", size = base_size, color = "gray30"),
+      axis.text = element_text(color = "gray40"),
+      panel.grid.major = element_line(color = "gray90"),
+      panel.grid.minor = element_blank(),
+      panel.background = element_rect(fill = "white", color = NA),
+      plot.background = element_rect(fill = "white", color = NA),
+      legend.position = "bottom",
+      legend.title = element_blank(),
+      legend.text = element_text(size = base_size * 0.8, color = "gray30")
+    )
+}
+
+scale_color_pastel <- function() {
+  scale_color_manual(values = c(
+    "#A8DADC",  # light teal
+    "#F4A261",  # soft orange
+    "#E5989B",  # dusty pink
+    "#B5E48C",  # mint green
+    "#9D4EDD",  # soft violet
+    "#FFD6A5",  # peach
+    "#8ECAE6"   # sky blue
+  ))
+}
+
 
 ```
 
@@ -89,16 +121,36 @@ plot_1 = base%>%
   ggplot()+
   geom_rect(aes(xmin = 2015.5, xmax = 2019.5, ymin = -Inf, ymax = Inf),
             fill = "light grey", alpha = 0.014)+
-  geom_point(aes(x = (Convocatoria), y= Otorgadas, group = Tipo, color = Tipo, text = paste(trunc(Otorgadas*1000)/1000)), size = 2)+
-  geom_line(aes(x = (Convocatoria), y= Otorgadas, group = Tipo, color = Tipo), size = 1.2)+
+  geom_point(aes(x = (Convocatoria), y= Otorgadas, group = Tipo, color = Tipo, text = paste(trunc(Otorgadas*1000)/1000)), size = 5)+
+  geom_line(aes(x = (Convocatoria), y= Otorgadas, group = Tipo, color = Tipo), linewidth = 2)+
   
-  scale_x_continuous(limits = c(2011, 2021), breaks = seq(2011, 2021))+
+    # geom_line(linewidth = 2)+
+  # geom_point(size = 5)+
+  theme_minimal(base_size = 18)+
+  scale_x_continuous(limits = c(2011, 2024), breaks = seq(2011, 2024))+
   xlab(label = "Convocatorias")+
   ylab(label = "Ingresos en la comisión de Psicología\ny Ciencias de la Educación")+
   ylim(0,60)+
-  theme_minimal()
+  theme_litera_minimal() +
+  theme(
+    legend.title = element_blank(),
+    legend.position = c(0.82, 0.9),
+    axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1),
+    axis.title.x = element_text(margin = margin(t = 10)),
+    plot.subtitle = element_text(size=14, face="italic", color="black")
+  ) +
+  geom_text(aes(label = "@fedegiovannetti", x = 2012.5, y = 60), size = 5, alpha = 0.8, color = "darkgrey", hjust = 0.4)+
+  scale_color_pastel()
 
-ggplotly(plot_1, tooltip = "text")
+ggplotly(plot_1, tooltip = "text")%>%
+  layout(
+    legend = list(
+      title = list(text = NULL),  # remove title
+      x = 0.55,  
+      y = 1,
+      bgcolor = 'rgba(255,255,255,0.6)'  
+    )
+  )
 
 ```
 
@@ -115,17 +167,35 @@ plot_3 = base%>%
   geom_rect(aes(xmin = 2015.5, xmax = 2019.5, ymin = -Inf, ymax = Inf),
             fill = "light grey", alpha = 0.014)+
   
-  geom_point(aes(x = (Convocatoria), y= Postulaciones, text = paste(trunc(Postulaciones*1000)/1000), group = Tipo, color = Tipo), size = 2)+
-  geom_line(aes(x = (Convocatoria), y= Postulaciones, group = Tipo, color = Tipo), size = 1.2)+
+  geom_point(aes(x = (Convocatoria), y= Postulaciones, text = paste(trunc(Postulaciones*1000)/1000), group = Tipo, color = Tipo), size = 5)+
+  geom_line(aes(x = (Convocatoria), y= Postulaciones, group = Tipo, color = Tipo), linewidth = 2)+
 
 
   ylab(label = "Postulantes de la Comisión de Psicología\ny Ciencias de la Educación")+
-  scale_x_continuous(limits = c(2011, 2021), breaks = seq(2011, 2021))+
+  scale_x_continuous(limits = c(2011, 2024), breaks = seq(2011, 2025))+
   xlab(label = "Convocatorias")+
-  # ylim(0,60)+
-  theme_minimal()
+    theme_litera_minimal() +
+  theme(
+    legend.title = element_blank(),
+    # legend.position = c(0.82, 0.9),
+    legend.position = "none",
+    axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1),
+    axis.title.x = element_text(margin = margin(t = 10)),
+    plot.subtitle = element_text(size=14, face="italic", color="black")
+  ) +
+  geom_text(aes(label = "@fedegiovannetti", x = 2012.5, y = 150), size = 5, alpha = 0.8, color = "darkgrey", hjust = 0.4)+
+  scale_color_pastel()
 
-ggplotly(plot_3, tooltip = "text")
+ggplotly(plot_3, tooltip = "text")%>%
+  layout(
+    legend = list(
+      title = list(text = NULL),  # remove title
+      x = 0.55,  
+      y = 1.2,
+      bgcolor = 'rgba(255,255,255,0.6)'  
+    )
+  )
+
 
 ```
 
@@ -143,17 +213,35 @@ plot_4 = base%>%
   geom_rect(aes(xmin = 2015.5, xmax = 2019.5, ymin = -Inf, ymax = Inf),
             fill = "light grey", alpha = 0.014)+
   
-  geom_point(aes(x = (Convocatoria), y= Porcentaje, text = paste(trunc(Porcentaje*1000)/1000, ""), group = Tipo, color = Tipo), size = 2)+
-  geom_line(aes(x = (Convocatoria), y= Porcentaje, group = Tipo, color = Tipo), size = 1.2)+
+  geom_point(aes(x = (Convocatoria), y= Porcentaje, text = paste(trunc(Porcentaje*1000)/1000, ""), group = Tipo, color = Tipo), size = 5)+
+  geom_line(aes(x = (Convocatoria), y= Porcentaje, group = Tipo, color = Tipo), linewidth = 2)+
   
   
-  scale_x_continuous(limits = c(2011, 2021), breaks = seq(2011, 2021))+
+  scale_x_continuous(limits = c(2011, 2024), breaks = seq(2011, 2024))+
   xlab(label = "Convocatorias")+
   ylab(label = "Porcentaje de nuevos ingresos en la\nComisión de Psicología y Ciencias de la Educación")+
   ylim(0,100)+
-  theme_minimal()
+  theme_litera_minimal() +
+  theme(
+    legend.title = element_blank(),
+    legend.position = c(0.82, 0.9),
+    # legend.position = "none",
+    axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1),
+    axis.title.x = element_text(margin = margin(t = 10)),
+    plot.subtitle = element_text(size=14, face="italic", color="black")
+  ) +
+  geom_text(aes(label = "@fedegiovannetti", x = 2012.5, y = 150), size = 5, alpha = 0.8, color = "darkgrey", hjust = 0.4)+
+  scale_color_pastel()
 
-ggplotly(plot_4, tooltip = "text")
+ggplotly(plot_4, tooltip = "text")%>%
+  layout(
+    legend = list(
+      title = list(text = NULL),  # remove title
+      x = 0.5,  
+      y = 1,
+      bgcolor = 'rgba(255,255,255,0.6)'  
+    )
+  )
 
 ```
 
