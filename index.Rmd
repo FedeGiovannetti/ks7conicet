@@ -86,6 +86,12 @@ scale_color_pastel <- function() {
 
 ```
 
+<br>
+<br>
+
+# Información importante
+
+Este sitio contiene información de las comisiones KS7 (Psicología) y KS10 (Ciencias de la educación) desde 2011 hasta 2024. Hasta la convocatoria 2021 inclusive, ambas comisiones estaban unificadas. La información presente aquí sobre las convocatorias 2022 a 2024 es la suma de las dos nuevas comisiones resultantes. La convocatoria 2024 fue la última incluida aquí. Para análisis actualizados, sugerimos ir a https://fedegiovannetti.github.io/CONICET_serie_historica/ 
 
 <br>
 <br>
@@ -97,10 +103,6 @@ El objetivo de este sitio es poner a disposición de la comunidad científica un
 ### Vocación colataborativa
 
 El presente sitio, junto con los códigos y los datos de los análisis son de dominio público. Alentamos a nuestros/as colegas a que se involucren en los análisis, el código y con los datos ya sea mediante GitHub o por correo electrónico. La información de contacto está disponible en la sección "Nosotros".
-
-### Última actualización
-
-En la última actualización, se agregaron los resultados de las convocatorias 2021. En la próxima actualización se inclurián los datos de Psicología por separado de los de Educación.
 
 <br>
 <br>
