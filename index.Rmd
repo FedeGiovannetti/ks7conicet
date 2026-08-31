@@ -53,7 +53,16 @@ base <- readxl::read_excel("series_historicas_KS_7 - es.xlsx")
 base$Tipo <- factor(base$Tipo, levels = c("Becarios/as doctorales", "Becarios/as posdoctorales", "Carrera de Investigador/a Científico/a (CIC)"))
 
 
-theme_litera_minimal <- function(base_size = 15, base_family = "sans") {
+library(ggplot2)
+library(sysfonts)
+library(showtext)
+
+# 1. Cargar Montserrat desde Google Fonts
+font_add_google("Montserrat", "Montserrat")
+showtext_auto() # Activar para que se renderice correctamente
+
+# 2. Tu función adaptada con Montserrat
+theme_litera_minimal <- function(base_size = 15, base_family = "Montserrat") {
   theme_minimal(base_size = base_size, base_family = base_family) +
     theme(
       plot.title = element_text(face = "bold", size = base_size * 1.5, hjust = 0.5),
@@ -70,6 +79,9 @@ theme_litera_minimal <- function(base_size = 15, base_family = "sans") {
       legend.text = element_text(size = base_size * 0.8, color = "gray30")
     )
 }
+
+# Ejemplo de uso:
+# ggplot(mtcars, aes(wt, mpg)) + geom_point() + theme_litera_minimal()
 
 scale_color_pastel <- function() {
   scale_color_manual(values = c(
@@ -124,8 +136,8 @@ plot_1 = base%>%
   ggplot()+
   geom_rect(aes(xmin = 2015.5, xmax = 2019.5, ymin = -Inf, ymax = Inf),
             fill = "light grey", alpha = 0.014)+
-  geom_point(aes(x = (Convocatoria), y= Otorgadas, group = Tipo, color = Tipo, text = paste(trunc(Otorgadas*1000)/1000)), size = 5)+
-  geom_line(aes(x = (Convocatoria), y= Otorgadas, group = Tipo, color = Tipo), linewidth = 2)+
+  geom_point(aes(x = (Convocatoria), y= Otorgadas, group = Tipo, color = Tipo, text = paste(trunc(Otorgadas*1000)/1000)), size = 3)+
+  geom_line(aes(x = (Convocatoria), y= Otorgadas, group = Tipo, color = Tipo), linewidth = 1.5)+
   
     # geom_line(linewidth = 2)+
   # geom_point(size = 5)+
@@ -170,8 +182,8 @@ plot_3 = base%>%
   geom_rect(aes(xmin = 2015.5, xmax = 2019.5, ymin = -Inf, ymax = Inf),
             fill = "light grey", alpha = 0.014)+
   
-  geom_point(aes(x = (Convocatoria), y= Postulaciones, text = paste(trunc(Postulaciones*1000)/1000), group = Tipo, color = Tipo), size = 5)+
-  geom_line(aes(x = (Convocatoria), y= Postulaciones, group = Tipo, color = Tipo), linewidth = 2)+
+  geom_point(aes(x = (Convocatoria), y= Postulaciones, text = paste(trunc(Postulaciones*1000)/1000), group = Tipo, color = Tipo), size = 3)+
+  geom_line(aes(x = (Convocatoria), y= Postulaciones, group = Tipo, color = Tipo), linewidth = 1.5)+
 
 
   ylab(label = "Postulantes de la Comisión de Psicología\ny Ciencias de la Educación")+
@@ -216,8 +228,8 @@ plot_4 = base%>%
   geom_rect(aes(xmin = 2015.5, xmax = 2019.5, ymin = -Inf, ymax = Inf),
             fill = "light grey", alpha = 0.014)+
   
-  geom_point(aes(x = (Convocatoria), y= Porcentaje, text = paste(trunc(Porcentaje*1000)/1000, ""), group = Tipo, color = Tipo), size = 5)+
-  geom_line(aes(x = (Convocatoria), y= Porcentaje, group = Tipo, color = Tipo), linewidth = 2)+
+  geom_point(aes(x = (Convocatoria), y= Porcentaje, text = paste(trunc(Porcentaje*1000)/1000, ""), group = Tipo, color = Tipo), size = 3)+
+  geom_line(aes(x = (Convocatoria), y= Porcentaje, group = Tipo, color = Tipo), linewidth = 1.5)+
   
   
   scale_x_continuous(limits = c(2011, 2024), breaks = seq(2011, 2024))+

@@ -52,7 +52,16 @@ base <- readxl::read_excel("../series_historicas_KS_7.xlsx")
 base$Type <- factor(base$Type, levels = c("Doctoral fellows", "Postdoctoral fellows", "Permanent Research Fellows"))
 
 
-theme_litera_minimal <- function(base_size = 15, base_family = "sans") {
+library(ggplot2)
+library(sysfonts)
+library(showtext)
+
+# 1. Cargar Montserrat desde Google Fonts
+font_add_google("Montserrat", "Montserrat")
+showtext_auto() # Activar para que se renderice correctamente
+
+# 2. Tu función adaptada con Montserrat
+theme_litera_minimal <- function(base_size = 15, base_family = "Montserrat") {
   theme_minimal(base_size = base_size, base_family = base_family) +
     theme(
       plot.title = element_text(face = "bold", size = base_size * 1.5, hjust = 0.5),
@@ -70,6 +79,9 @@ theme_litera_minimal <- function(base_size = 15, base_family = "sans") {
     )
 }
 
+# Ejemplo de uso:
+# ggplot(mtcars, aes(wt, mpg)) + geom_point() + theme_litera_minimal()
+
 scale_color_pastel <- function() {
   scale_color_manual(values = c(
     "#A8DADC",  # light teal
@@ -84,9 +96,51 @@ scale_color_pastel <- function() {
 
 ```
 
+# ```{r, echo=FALSE}
+# 
+# 
+# base <- readxl::read_excel("../series_historicas_KS_7.xlsx")
+# 
+# base$Type <- factor(base$Type, levels = c("Doctoral fellows", "Postdoctoral fellows", "Permanent Research Fellows"))
+# 
+# 
+# theme_litera_minimal <- function(base_size = 15, base_family = "sans") {
+#   theme_minimal(base_size = base_size, base_family = base_family) +
+#     theme(
+#       plot.title = element_text(face = "bold", size = base_size * 1.5, hjust = 0.5),
+#       plot.subtitle = element_text(size = base_size * 1.1, hjust = 0.5, color = "gray40"),
+#       plot.caption = element_text(size = base_size * 0.8, color = "gray50", hjust = 1),
+#       axis.title = element_text(face = "bold", size = base_size, color = "gray30"),
+#       axis.text = element_text(color = "gray40"),
+#       panel.grid.major = element_line(color = "gray90"),
+#       panel.grid.minor = element_blank(),
+#       panel.background = element_rect(fill = "white", color = NA),
+#       plot.background = element_rect(fill = "white", color = NA),
+#       legend.position = "bottom",
+#       legend.title = element_blank(),
+#       legend.text = element_text(size = base_size * 0.8, color = "gray30")
+#     )
+# }
+# 
+# scale_color_pastel <- function() {
+#   scale_color_manual(values = c(
+#     "#A8DADC",  # light teal
+#     "#F4A261",  # soft orange
+#     "#E5989B",  # dusty pink
+#     "#B5E48C",  # mint green
+#     "#9D4EDD",  # soft violet
+#     "#FFD6A5",  # peach
+#     "#8ECAE6"   # sky blue
+#   ))
+# }
+# 
+# ```
+
 
 <br>
 <br>
+
+This site contains information on the KS7 (Psychology) and KS10 (Educational Sciences) commissions from 2011 to 2024. Up to and including the 2021 call, both commissions were unified. The information presented here regarding the 2022 to 2024 calls is the sum of the two new resulting commissions. The 2024 call was the last one included here. For updated analyses, we suggest visiting: https://fedegiovannetti.github.io/CONICET_serie_historica/
 
 # Introduction
 
@@ -95,10 +149,6 @@ The objective of this site is to make available an annual analysis of the evolut
 ### Collaborative vocation
 
 The present site, along with code and data is of public domain. We ecourage colleagues to get involved in the analysis, the code and the data via Github or via personal communication with the authors. Contact information is available in the "About us" section.
-
-### Última actualización
-
-En la última actualización, se agregaron los resultados de las convocatorias 2021. En la próxima actualización se inclurián los datos de Psicología por separado de los de Educación.
 
 <br>
 <br>
